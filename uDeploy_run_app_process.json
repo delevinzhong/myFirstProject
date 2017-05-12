@@ -1,0 +1,9 @@
+{
+  "application": "Enterprise-Big-Data",
+  "applicationProcess": "DevOps_Demo_App_Process",
+  "environment": "Development-Environment 1",
+  "versions": [{"component": "EBD_DevOps_Demo",
+    "version": "1.5"
+  }]
+}
+
