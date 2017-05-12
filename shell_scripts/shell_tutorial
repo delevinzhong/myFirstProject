@@ -1,0 +1,46 @@
+#shell cut:
+f  //f means field
+d  //d means delimiter
+b  //b means byte
+c  //c means character
+
+eg:
+#!/bin/bash
+a="MerchantHunter_20161116093712.txt"
+echo $a
+b=`echo $a | cut -d '.' -f 1`
+echo $b
+c=`echo $b | cut -d '_' -f 2`
+echo $c
+
+-d '.' means '.' is act as a delimiter
+-f 1   means the first field
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+#shell diff:
+refer to this page: http://www.lampweb.org/linux/3/17.html
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+#shell判断hdfs文件是否存在:
+refer to this page: http://blog.csdn.net/yeweiouyang/article/details/38875963
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+#shell权限设置:
+refer to this page: http://www.111cn.net/sys/linux/59979.htm
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+#shell字符串截取:
+refer to this page: http://www.blogjava.net/xzclog/archive/2011/03/04/345706.html
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+#shell数值操作:
+refer to this page: http://blog.csdn.net/xiaocainiaoshangxiao/article/details/39457511
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+#shell统计行数:
+refer to this page: http://www.jb51.net/article/61943.htm
+
+----------------------------------------------------------------------------------------------------------------------------------------
+#Linux修改JDK:
+refer to this page: http://www.cnblogs.com/samcn/archive/2011/03/16/1986248.html
+
