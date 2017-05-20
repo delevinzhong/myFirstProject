@@ -16,7 +16,7 @@ git config http.sslVerify false
 rem git pull origin master
 git add --all
 git commit -m "Push the codes to Bitbucket"
-git remote add origin ssh://git@bitbucket.service.dev/dede/%%j.git
+git remote add origin git@github.com:delevinzhong/%%j.git
 git push origin master
 )
 cd %dir%
