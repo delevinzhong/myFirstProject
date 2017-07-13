@@ -1,0 +1,29 @@
+Step 1. Download and install the remote agent
+1.	Create a directory on the agent machine (e.g. /home/bamboo-agent-home) to server as the Bamboo agent home for the remote agent.
+2.	Download Remote Agent JAR and save the JAR file to the directory on the agent machine that you created above. (e.g. /home/bamboo-agent-home/XXXXX.jar) 
+Step 2. Launch the remote agent
+	Run commands like below to install the agent:
+java -jar atlassian-bamboo-agent-installer-5.6.3.jar https://bamboo.service.dev/agentServer/
+ Step 3. Add self signed certification
+1.	CD to Java bin folder (note that need JDK1.7)
+2.	Import self signed certification
+./keytool –import –alias globaltest –file /<path>/globaltest-root-ca.cer
+Enter keystore password:
+(for globaltest-root-ca.cer, need to open the browser and go to http://bamboo.service.dev, click the certificate to download it.)
+Trust this certificate? [no]: yes
+./keytool –import –alias globaltest-bamboo –file /<path>/bamboo.cer
+Enter keystore password:
+Trust this certificate? [no]: yes
+3.	CD to bamboo home: cd /home/bamboo-agent-home, and then change the wrapper.conf file.
+cd /bamboo-agent-home/conf/
+vi wrapper.conf
+add the follow statements:
+wrapper.java.additional.3=-Djavax.net.ssl.keyStore=/<path>/.keystore
+wrapper.java.additional.4=-Djavax.net.ssl.keyStorePassword=********(enter your password when you set during importing the self-signed certification)
+wrapper.java.additional.5=-Djavax.net.ssl.trustStore=/<path>/.keystore
+4.	CD to bin folder, run the bamboo-agent.sh.
+cd/bin
+./bamboo-agent.sh start
+5.	Check whether it runs successfully.
+ps –ef | grep bamboo
+Step 4. Approve access in Bamboo
