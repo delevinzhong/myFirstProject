@@ -1,0 +1,24 @@
+#!/bin/bash 
+#
+#====================================================================================
+# Script Name : deploy_to_ST
+# Purpose : This script will add status for uDeploy component's version. After status
+#		    added successfully, the deploy to ST job can be triggered.
+# Used functions : shell script, uDeploy CLI, Bamboo variables.
+#
+#====================================================================================
+
+
+source /home/gblebdbamboodsa/.bashrc
+
+#add version status
+echo "Add version status"
+sh ${bamboo.build.working.directory}/uDeploy/addVersionStatus.sh
+
+sleep 30
+
+#run application
+echo "Run application"
+udclient -username $bamboo_uDeploy_pub_acc -password $bamboo_uDeploy_password \
+-weburl https://udeploy.service.anz:8443 \
+requestApplicationProcess ${bamboo.build.working.directory}/uDeploy/runSTAppProcess.json
