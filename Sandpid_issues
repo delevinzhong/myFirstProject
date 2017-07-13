@@ -1,0 +1,33 @@
+
+2.How to run hadoop in Sandpit?
+When you run command "hdfs dfs -ls /", it will show you the error message like below:
+
+You should run "kinit" command first, and after that you can run hadoop commands.
+Here if you do not have your keytab file, you need to generate it first.
+a. Open your terminal and enter command ktutil, then enter addent -password -p autrifactadsa@GLOBALTEST.ANZ.COM -k 1 -e aes256-cts, please note
+
+    that you need to use your account to replace autrifactadsa. 
+
+b. Then enter your password. 
+
+c. Enter addent -password -p autrifactadsa@GLOBALTEST.ANZ.COM -k 1 -e rc4-hmac, then enter your password.
+
+d. Enter wkt autrifactadsa.keytab. And "wkt autrifactadsa,keytab" is you keytab file. 
+
+e. Enter quit to exit.
+f.  Then run commands kinit -kt ~/autrifactadsa.keytab autrifactadsa and then you can run hadoop commands.
+g. You can use command klist to check whether it success. And you can also use kdestory to delete it.
+
+3.How to link Bitbucket and Sandpit?
+a. Configure ssh on Sandpit refer to below link:
+    https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html
+b. After ssh was added successfully, go to your home path and Create a file named .gitconfig
+   Then type your name and email to the file like below and save.
+    [user]
+          name = Wei Zhong
+          email = Wei.Zhong@anz.com
+c. Go to .ssh path and create a file named config. Then type your name, port, hostname and identityfile like below and save.
+    user  zhongd1
+    Port  22
+    HostName  bitbucket.service.dev
+    IdentityFile ~/.ssh/id_rsa
