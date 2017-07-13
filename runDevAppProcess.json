@@ -1,0 +1,8 @@
+{
+  "application": "Enterprise-Big-Data",
+  "applicationProcess": "Central_Logging_Repository_DEV",
+  "environment": "Development-Environment 1",
+  "versions": [{"component": "Central_Logging_Repository",
+    "version": "1.143.0"
+  }]
+}
