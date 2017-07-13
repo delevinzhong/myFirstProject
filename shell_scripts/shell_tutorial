@@ -44,3 +44,6 @@ refer to this page: http://www.jb51.net/article/61943.htm
 #Linux修改JDK:
 refer to this page: http://www.cnblogs.com/samcn/archive/2011/03/16/1986248.html
 
+----------------------------------------------------------------------------------------------------------------------------------------
+#asu usage
+/opt/sysadm/bin/asu -f -u gblebdudeploydsa -a 1234567 -r "running tests"
